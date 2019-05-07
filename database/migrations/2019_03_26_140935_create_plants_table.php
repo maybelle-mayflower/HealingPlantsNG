@@ -21,6 +21,7 @@ class CreatePlantsTable extends Migration
             $table->string('details');
             $table->integer('price');
             $table->text('description');
+            $table->text('image');
             $table->timestamps();
         });
     }

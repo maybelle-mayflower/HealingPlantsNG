@@ -19,7 +19,7 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-6 mb-5 ftco-animate">
-    				<img class="img-fluid img-rounded" src="{{asset('/img/plants/'.$plant->slug.'.jpg')}}" alt="{{$plant->name}}" width="450" height="450">
+    				<img class="img-fluid img-rounded" src="{{asset('/img/plants/'.$plant->image.'')}}" alt="{{$plant->name}}" width="450" height="450">
     			</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
     				<h3>{{$plant->name}}</h3>

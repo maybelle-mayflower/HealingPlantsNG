@@ -55,5 +55,23 @@ class PlantBaseController extends Controller
        
      }
     }
+
+    public function create(){
+        return view('admin.plant.create');
+    }
+
+    public function store(Request $request){
+        $formInput = $request->except('image');
+        //image upload
+        $image = $request->image;
+        if($image){
+            $imageName = $image->getClientOriginalName();
+            $image->move('img/plants/', $imageName);
+            $formInput['image'] = $imageName;
+        }
+
+        Plant::create($formInput);
+        return redirect()->route('admin.dashboard');
+    }
     
 }

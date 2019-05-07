@@ -55,8 +55,18 @@ Route::get('/thankyou', function () {
 
 Auth::routes();
 
+Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/administrator', function () {
+/*Route::get('/administrator', function () {
     return view('admin.dashboard');
+});
+*/
+Route::group(['prefix' => 'admin', 'middleware'=> 'auth'], function () {
+    Route::get('/', function(){
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    Route::resource('plant', 'PlantBaseController');
+    
 });
