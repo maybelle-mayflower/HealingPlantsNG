@@ -13,25 +13,50 @@
 
 Route::get('/', 'WelcomeController@index')->name('welcome-page');
 
-Route::get('/learn', 'PlantBaseController@index')->name('plant-bible');
+Route::get('/learn', 'PlantBaseController@indextwo')->name('plant-bible');
+Route::get('/learn/action', 'PlantBaseController@action')->name('live_search.action');
+
 Route::get('/learn/{plant}', 'PlantBaseController@show')->name('plant.show');
+Route::get('/single/{plant}/', 'PlantBaseController@single')->name('single.show');
 
-Route::get('/shop', function () {
-    return view('shop');
+Route::get('/shop', 'PlantBaseController@shop')->name('plant.store');
+
+Route::get('/recipes', 'RecipesController@index')->name('recipe.book');
+Route::get('/recipes/{plant}/', 'RecipesController@show')->name('plant.recipes');
+Route::get('/recipe/{recipe}/', 'RecipesController@single')->name('single.recipe');
+Route::get('/print/{recipe}/','RecipesController@printPDF')->name('print.recipe');
+
+
+Route::get('/live_search', 'PlantBaseController@indextwo');
+Route::get('/live_search/action', 'PlantBaseController@action')->name('live_search.action');
+
+
+Route::get('/contact', 'ContactController@index')->name('contact.us');
+Route::post('/contact', 'ContactController@mailToAdmin');
+
+
+Route::get('/blog', 'BlogController@index')->name('blog');
+Route::get('/blog/{singleblog}', 'BlogController@single')->name('single.blog');
+
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart', 'CartController@store')->name('cart.store');
+
+Route::post('/cart/{plant}', 'CartController@destroy')->name('cart.destroy');
+Route::get('empty', function(){
+    Cart::destroy();
 });
 
-Route::get('/plant', function () {
-    return view('plant');
-});
-Route::get('/blog', function () {
-    return view('blog');
-});
-Route::get('/cart', function () {
-    return view('cart');
-});
 Route::get('/checkout', function () {
     return view('checkout');
 });
 Route::get('/thankyou', function () {
     return view('thankyou');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/administrator', function () {
+    return view('admin.dashboard');
 });
