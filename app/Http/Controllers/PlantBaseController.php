@@ -13,9 +13,9 @@ class PlantBaseController extends Controller
      */
     public function index()
     {
-        $plants = Plant::orderBy('name')->paginate(8);
-        return view('front.plantbase')->with('plants', $plants);
-  
+        $plants = Plant::all();
+        return view('admin.plant.index', compact('plants'));
+    
     }
     
     public function show($slug)
@@ -55,13 +55,23 @@ class PlantBaseController extends Controller
        
      }
     }
-
+    public function adminIndex(){
+        $plants = Plant::all();
+        return view('admin.product.index', compact('plants'));
+    }
     public function create(){
         return view('admin.plant.create');
     }
 
     public function store(Request $request){
         $formInput = $request->except('image');
+        //validation
+
+        $this->validate($request, [
+            'name' => 'required',
+            'slug' => 'required',
+            'image'=>'image|mimes:png,jpg,jpeg|max:10000'
+        ]);
         //image upload
         $image = $request->image;
         if($image){

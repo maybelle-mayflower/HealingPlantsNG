@@ -14,7 +14,7 @@ class RecipesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function frontindex()
     {
         $recipes = Recipes::inRandomOrder()->get();
         return view('front.recipebook')->with('recipes', $recipes);
