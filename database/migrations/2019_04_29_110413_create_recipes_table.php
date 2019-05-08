@@ -20,12 +20,17 @@ class CreateRecipesTable extends Migration
             $table->string('recipe_name');
             $table->string('treatment_for');
             $table->text('keywords');
-            $table->mediumText('ingredients');
+            $table->integer('category_id')->unsigned();
             $table->longtext('method');
             $table->string('display_image')->default('noimage.jpg');
             $table->integer('is_deleted')->default('0');
             $table->timestamps();
         });
+
+       // Schema::table('recipes', function($table){
+           // $table->foreign('category_id')->references('id')->on('categories');
+
+      //  });
     }
 
     /**

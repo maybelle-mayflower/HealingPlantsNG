@@ -81,7 +81,7 @@ class PlantBaseController extends Controller
         }
 
         Plant::create($formInput);
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('plant.index');
     }
     
 }

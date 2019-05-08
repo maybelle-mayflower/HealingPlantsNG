@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Herbs')
+@section('title', 'Categories')
 @section('content')
 <body id="page-top">
 
@@ -18,7 +18,7 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">All Herbs</li>
+          <li class="breadcrumb-item active">All Categories</li>
         </ol>
 
  
@@ -28,28 +28,21 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Plants/Herbs</div>
+            Plants/Categories</div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Image</th>
+                    <th></th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Image</th>
-                  </tr>
-                </tfoot>
                 <tbody>
-                    @foreach($plants as $plant)
+                    @foreach($categories as $category)
                   <tr>
-                  <td>{{$plant->name}}</td>
-                    <td><img src="{{asset ('img/plants/'.$plant->image.'')}}" alt="{{$plant->slug}}" width="150" height="100">
-                    </td>
+                  <td>{{$category->category_name}}</td>
+                  <td><a href="#" class="btn btn-danger btn-xs">Del</a></td>
                   </tr>
                   @endforeach
                 
@@ -57,7 +50,7 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Last update by Admin</div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
       </div>

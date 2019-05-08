@@ -12,12 +12,10 @@
             <span>Herbs</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Herb Actions:</h6>
+            <h6 class="dropdown-header">Herbs:</h6>
             <a class="dropdown-item" href="{{route('plant.index')}}">View All</a>
-            <a class="dropdown-item" href="{{route('plant.create')}}">Add Product</a>
-                      <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Other:</h6>
-            <a class="dropdown-item" href="404.html">View Categories</a>
+            <a class="dropdown-item" href="{{route('plant.create')}}">Add Herb</a>
+
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -27,8 +25,12 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
               <h6 class="dropdown-header">Recipe Actions:</h6>
-              <a class="dropdown-item" href="{{route('plant.index')}}">View All</a>
-              <a class="dropdown-item" href="{{route('plant.create')}}">Add Recipe</a>
+              <a class="dropdown-item" href="{{route('recipe.index')}}">View All</a>
+              <a class="dropdown-item" href="{{route('recipe.create')}}">Add Recipe</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header">Categories:</h6>
+              <a class="dropdown-item" href="{{route('category.index')}}">View All</a>
+              <a class="dropdown-item" href="{{route('category.create')}}">Add Category</a>
          
             </div>
           </li>

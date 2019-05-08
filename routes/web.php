@@ -22,7 +22,7 @@ Route::get('/single/{plant}/', 'PlantBaseController@single')->name('single.show'
 Route::get('/shop', 'PlantBaseController@shop')->name('plant.store');
 
 Route::get('/recipes', 'RecipesController@frontindex')->name('recipe.book');
-Route::get('/recipes/{plant}/', 'RecipesController@show')->name('plant.recipes');
+Route::get('/recipes/{plant}/', 'RecipesController@frontshow')->name('plant.recipes');
 Route::get('/recipe/{recipe}/', 'RecipesController@single')->name('single.recipe');
 Route::get('/print/{recipe}/','RecipesController@printPDF')->name('print.recipe');
 
@@ -68,6 +68,10 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth'], function () {
     })->name('admin.dashboard');
 
     Route::resource('plant', 'PlantBaseController');
-    Route::resource('recipe', 'Recipe');
+    Route::resource('recipe', 'RecipesController');
+    Route::resource('category', 'CategoryController');
+
+
+    Route::post("addingredient","RecipesController@addIngredientPost");
     
 });
