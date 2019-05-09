@@ -26,9 +26,15 @@
         </div>
         </div>
             <h3>Add Item</h3>
+            <div class="alert alert-danger print-error-msg" style="display:none">
+                <ul></ul>
+            </div>
+            <div class="alert alert-success print-success-msg" style="display:none">
+                <ul></ul>
+            </div>
 
             <div class="row">
-                {!! Form::open(['route' => 'recipe.store', 'method' => 'post', 'files'=> true])!!}
+                {!! Form::open(['route' => 'recipe.store', 'id'=>'add_recipe', 'name' => 'add_recipe', 'method' => 'post', 'files'=> true])!!}
           
                 <div class="form-group">
                     {{Form::label('recipe_name', 'Name')}}
@@ -61,14 +67,13 @@
                             </tr>  
                         </table>  
                     </div>
-        
 
                 <div class="form-group">
                     {{Form::label('method', 'Method')}}
                     {{Form::textarea('method', null, ['class'=>'form-control'])}}
                 </div>
 
-                {{Form::submit('Create Recipe', ['class'=>'btn btn-info'])}}
+                {{Form::submit('Create Recipe', ['class'=>'btn btn-info', 'name' => 'submit', 'id'=>'submit'])}}
                 {!! Form::close() !!}
             </div>
 
@@ -106,12 +111,12 @@
           }
       });
 
-
+/*
       $('#submit').click(function(){            
            $.ajax({  
                 url:postURL,  
                 method:"POST",  
-                data:$('#add_name').serialize(),
+                data:$('#add_recipe').serialize(),
                 type:'json',
                 success:function(data)  
                 {
@@ -120,11 +125,11 @@
                     }else{
                         i=1;
                         $('.dynamic-added').remove();
-                        $('#add_name')[0].reset();
-                       // $(".print-success-msg").find("ul").html('');
-                      //  $(".print-success-msg").css('display','block');
+                        $('#add_recipe')[0].reset();
+                        $(".print-success-msg").find("ul").html('');
+                        $(".print-success-msg").css('display','block');
                         $(".print-error-msg").css('display','none');
-                     //   $(".print-success-msg").find("ul").append('<li>Record Inserted Successfully.</li>');
+                        $(".print-success-msg").find("ul").append('<li>Record Inserted Successfully.</li>');
                     }
                 }  
            });  
@@ -138,7 +143,7 @@
          $.each( msg, function( key, value ) {
             $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
          });
-      }
+      }*/
     });  
 </script>
 @endsection

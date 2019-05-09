@@ -18,8 +18,9 @@ class RecipesController extends Controller
      */
     public function index()
     {
-        $recipes = Recipes::all();
-        return view('admin.recipe.index', compact('recipes'));
+        $recipes = Recipes::with('category')->get();
+       // $category = Category::find(1);
+        return view('admin.recipe.index')->with('recipes', $recipes);
   
     }
     public function create(){
@@ -39,19 +40,23 @@ class RecipesController extends Controller
         ]);
        $recipeInsert = Recipes::create($formInput);
        if($recipeInsert){
-           $ingredients = array(
-               [
-                'recipe_id' => '1',
-                'name' => 'aloevera'
-               ],
-               [
-                   'recipe_id' => '1',
-                   'name' => 'glycerin'
-               ]
-           );
-           Ingredient::insert($ingredients);
+        $rules = [];
+        foreach($request->input('name') as $key => $value){
+            $rules["name.{$key}"] = 'required';
+        }
+        $validIngredient = $request->validate($rules);
+        if($validIngredient){
+            foreach($request->input('name') as $key => $value){
+                Ingredient::create([
+                    'name'=>$value,
+                    'recipe_id' => $recipeInsert->id
+                ]);
+            }
+            return redirect()->route('recipe.index');
+        }
+        return response()->json(['error'=>$validIngredient->errors()->all()]);
        }
-        return redirect()->route('recipe.index');
+       // return redirect()->route('recipe.index');
     }
 
 

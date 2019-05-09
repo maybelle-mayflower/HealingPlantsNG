@@ -18,7 +18,7 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">All Herbs</li>
+          <li class="breadcrumb-item active">All Recipes</li>
         </ol>
 
 
@@ -27,19 +27,26 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Recipes</div>
+            Recipes
+            <a href="{{route('recipe.create')}}"><button class="btn btn-primary btn-xs" style="float: right;"><i class="fas fa-plus"></i>New Recipe</button>
+            </a></div>
+            <div class="row">
+              </div>
           <div class="card-body">
+
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="50%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>Name</th>
+                    <th>Category</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>Name</th>
+                    <th>Category</th>
                     <th></th>
                   </tr>
                 </tfoot>
@@ -47,6 +54,9 @@
                     @foreach($recipes as $recipe)
                   <tr>
                   <td><a href="#">{{$recipe->recipe_name}}</a></td>
+                  
+                  <td>{{$recipe->Category->category_name}}</td>
+                 
                   <td><a href="#" class="btn btn-danger btn-xs">Delete</a></td>
                 
                   </tr>

@@ -8,7 +8,7 @@
       <a href="{{route('single.show', $row->slug)}}"><img class="card-img-top" src="{{asset('/img/plants/'.$row->image.'')}}" alt="Card image cap"  width="100" height="150"></a>
       <div class="card-body">
         
-        <p class="card-text">Botanical Name</p>
+        <p class="card-text">{{$row->details}}</p>
         <a href="{{route('single.show', $row->slug)}}" class="btn btn-primary">Open</a>
       </div>
     </div>

@@ -13,7 +13,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Herbs:</h6>
-            <a class="dropdown-item" href="{{route('plant.index')}}">View All</a>
+            <a class="dropdown-item" href="{{route('plant.index')}}">All</a>
             <a class="dropdown-item" href="{{route('plant.create')}}">Add Herb</a>
 
           </div>
@@ -24,8 +24,8 @@
               <span>Recipes</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-              <h6 class="dropdown-header">Recipe Actions:</h6>
-              <a class="dropdown-item" href="{{route('recipe.index')}}">View All</a>
+              <h6 class="dropdown-header">Recipes:</h6>
+              <a class="dropdown-item" href="{{route('recipe.index')}}">All</a>
               <a class="dropdown-item" href="{{route('recipe.create')}}">Add Recipe</a>
               <div class="dropdown-divider"></div>
               <h6 class="dropdown-header">Categories:</h6>

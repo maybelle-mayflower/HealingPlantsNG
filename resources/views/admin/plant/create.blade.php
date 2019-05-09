@@ -12,6 +12,19 @@
    <div id="content-wrapper">
 
         <div class="container" style="margin: 20px 20px 20px 20px;"> 
+                <div class="row">
+                        <div class="col-md-4">
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
+                </div>
             <h3>Add Item</h3>
 
             <div class="row">

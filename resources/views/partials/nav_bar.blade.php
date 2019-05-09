@@ -10,7 +10,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="{{ route('plant-bible')}}" class="nav-link">HerbCyclopedia</a></li>
                 <li class="nav-item"><a href="{{ route ('recipe.book')}}" class="nav-link">Recipe Book</a></li>
-                <li class="nav-item"><a href="{{ route ('plant.store')}}" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="{{ route ('plant.shop')}}" class="nav-link">Shop</a></li>
                 <li class="nav-item"><a href="{{ route ('blog')}}" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
 

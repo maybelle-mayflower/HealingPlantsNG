@@ -19,7 +19,7 @@ Route::get('/learn/action', 'PlantBaseController@action')->name('live_search.act
 Route::get('/learn/{plant}', 'PlantBaseController@show')->name('plant.show');
 Route::get('/single/{plant}/', 'PlantBaseController@single')->name('single.show');
 
-Route::get('/shop', 'PlantBaseController@shop')->name('plant.store');
+Route::get('/shop', 'PlantBaseController@shop')->name('plant.shop');
 
 Route::get('/recipes', 'RecipesController@frontindex')->name('recipe.book');
 Route::get('/recipes/{plant}/', 'RecipesController@frontshow')->name('plant.recipes');
@@ -72,6 +72,6 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth'], function () {
     Route::resource('category', 'CategoryController');
 
 
-    Route::post("addingredient","RecipesController@addIngredientPost");
+    //Route::post("addingredient","RecipesController@addIngredientPost");
     
 });
