@@ -25,7 +25,10 @@
                     @endif
                 </div>
                 </div>
-            <h3>Add Item</h3>
+                <div class="row">
+            <h3>Add Category</h3>
+                </div>
+                <hr>
 
             <div class="row">
                 {!! Form::open(['route' => 'category.store', 'method' => 'post', 'files'=> true])!!}

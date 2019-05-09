@@ -26,35 +26,41 @@
                 </div>
                 </div>
                 <div class="row">
-            <h3>New HerbCyclopedia Item</h3>
-        </div>
-        <hr>
+            <h3>Add Product Item</h3>
+                </div>
+                <hr>
+
             <div class="row">
-                {!! Form::open(['route' => 'plant.store', 'method' => 'post', 'files'=> true])!!}
+                {!! Form::open(['route' => 'product.store', 'method' => 'post', 'files'=> true])!!}
           
                 <div class="form-group">
                     {{Form::label('name', 'Name')}}
                     {{Form::text('name', null, ['class'=>'form-control'])}}
                 </div>
                 <div class="form-group">
-                    {{Form::label('description', 'Description')}}
-                    {{Form::textarea('description', null, ['class'=>'form-control'])}}
-                </div>
-
-                <div class="form-group">
-                        {{Form::label('details', 'Botanical Name')}}
+                        {{Form::label('details', 'Details')}}
                         {{Form::text('details', null, ['class'=>'form-control'])}}
-                    </div>
+                </div>
+                <div class="form-group">
+                        {{Form::label('slug', 'Slug')}}
+                        {{Form::text('slug', null, ['class'=>'form-control'])}}
+                </div>
+                <div class="form-group">
+                        {{Form::label('price', 'Price')}}
+                        {{Form::number('price', null, ['class'=>'form-control', 'step'=>'any'])}}
+                </div>
+                <div class="form-group">
+                        {{Form::label('in_stock', 'In Stock')}}
+                        {{Form::radio('in_stock', 1, ['class'=>'form-control'])}}
 
-                    <div class="form-group">
-                            {{Form::label('slug', 'Slug')}}
-                            {{Form::text('slug', null, ['class'=>'form-control'])}}
-                    </div>
-
-                    <div class="form-group">
-                            {{Form::label('image', 'Image')}}
-                            {{Form::file('image', ['class'=>'form-control'])}}
-                    </div>
+                        {{Form::label('in_stock', 'Out of Stock')}}
+                        {{Form::radio('in_stock', 0, ['class'=>'form-control'])}}
+              
+                </div>
+                <div class="form-group">
+                        {{Form::label('image', 'Image')}}
+                        {{Form::file('image', ['class'=>'form-control'])}}
+                </div>
                     {{Form::submit('Add', ['class'=>'btn btn-primary'])}}
                 {!! Form::close() !!}
             </div>

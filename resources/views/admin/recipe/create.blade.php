@@ -25,7 +25,11 @@
             @endif
         </div>
         </div>
-            <h3>Add Item</h3>
+        <div class="row">
+            <h3>New Recipe</h3>
+        </div>
+        <hr>
+
             <div class="alert alert-danger print-error-msg" style="display:none">
                 <ul></ul>
             </div>

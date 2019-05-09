@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Categories')
+@section('title', 'Herbs')
 @section('content')
 <body id="page-top">
 
@@ -18,7 +18,7 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">All Categories</li>
+          <li class="breadcrumb-item active">All Products</li>
         </ol>
 
  
@@ -28,9 +28,8 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Plants/Categories
-            <a href="{{route('category.create')}}"><button class="btn btn-primary btn-xs" style="float: right;"><i class="fas fa-plus"></i>Add New</button></a>
-
+            Products
+            <a href="{{route('product.create')}}"><button class="btn btn-primary btn-xs" style="float: right;"><i class="fas fa-plus"></i>Add New</button></a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -38,14 +37,27 @@
                 <thead>
                   <tr>
                     <th>Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
                     <th></th>
                   </tr>
                 </thead>
-                <tbody>
-                    @foreach($categories as $category)
+                <tfoot>
                   <tr>
-                  <td>{{$category->category_name}}</td>
-                  <td><a href="#" class="btn btn-danger btn-xs">Del</a></td>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th></th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                    @foreach($products as $product)
+                  <tr>
+                  <td>{{$product->name}}</td>
+                    <td><img src="{{asset ('img/products/'.$product->image.'')}}" alt="{{$product->slug}}" width="150" height="100">
+                    </td>
+                    <td>₦{{  number_format($product->price, 2) }}</td>
+                    <td><a href="" class="btn btn-info">Edit</a></td>
                   </tr>
                   @endforeach
                 
@@ -53,7 +65,7 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <div class="card-footer small text-muted">Last update by Admin</div>
         </div>
 
       </div>
