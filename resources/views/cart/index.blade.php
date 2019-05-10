@@ -33,13 +33,18 @@
                   <td>{{$cartItem->name}}</td>
                   <td>{{$cartItem->price}}</td>
                   <td>
-                    {!! Form::open(['route'=> ['cart.update', $cartItem->rowId], 'method' => 'post']) !!}
+                    {!! Form::open(['route'=> ['cart.update', $cartItem->rowId], 'method' => 'PUT']) !!}
 
                     <input type="number" value="{{$cartItem->qty}}" style="width:2em">
                     <input type="submit" class="btn btn-sm btn-default" value="Ok">
-                    {!! Form::close() !!}
+                     {!! Form::close() !!}
                   </td>
-                  <td><a href="{{route('cart.destroy', $cartItem->rowId)}}" class="btn btn-danger">Delete</a></td>
+                  <td>
+                      <form action="{{route('cart.destroy',$cartItem->rowId)}}"  method="POST">
+                          {{csrf_field()}}
+                          {{method_field('DELETE')}}
+                          <input class="btn btn-small btn-danger alert" type="submit" value="Delete">
+                        </form>
                 </tr>
               @endforeach
             </tbody>

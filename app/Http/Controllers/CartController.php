@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\Product;
+
 
 class CartController extends Controller
 {
@@ -58,7 +59,7 @@ class CartController extends Controller
    public function save($id)
    {
       $product = Product::find($id);
-      Cart::add($id, $product->name, 1, $product->price);
+      Cart::add($id, $product->name,1,$product->price);
       return back();
 
   }
@@ -72,7 +73,9 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Cart::update($id, ['qty' => $request->qty]);
+
+        return back();
     }
 
     /**
