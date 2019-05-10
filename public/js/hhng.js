@@ -13,4 +13,11 @@ $(document).ready(function() {
             "emptyTable": "No recipes available"
           }
     });
+
+    $('#carttable').DataTable({
+        searching: false, paging: false, info: false,
+        "language": {
+            "emptyTable": "Shopping Cart is empty"
+          }
+    });
 } );

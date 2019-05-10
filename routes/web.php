@@ -38,12 +38,14 @@ Route::post('/contact', 'ContactController@mailToAdmin');
 Route::get('/blog', 'BlogController@index')->name('blog');
 Route::get('/blog/{singleblog}', 'BlogController@single')->name('single.blog');
 
-Route::get('/cart', 'CartController@index')->name('cart.index');
-Route::post('/cart', 'CartController@store')->name('cart.store');
+//Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::resource('/cart', 'CartController');
+Route::get('/cart/{cart}', 'CartController@save')->name('cart.save');
 
-Route::post('/cart/{plant}', 'CartController@destroy')->name('cart.destroy');
+//Route::post('/cart/{plant}', 'CartController@destroy')->name('cart.destroy');
 Route::get('empty', function(){
     Cart::destroy();
+    return back();
 });
 
 Route::get('/checkout', function () {

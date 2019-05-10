@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Product;
 
 class CartController extends Controller
 {
@@ -14,20 +15,20 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('Cart');
+        $cartItems = Cart::content();
+
+        return view('cart.index', compact('cartItems'));
     }
 
-   
     public function create()
     {
-        //
     }
 
     public function store(Request $request)
     {
-       Cart::add($request->id, $request->name, 1, $request->price)
+       /*Cart::add($request->id, $request->name, 1, $request->price)
        ->associate('App\Plant');
-       return redirect()->route('cart.index')->with('success_message', 'Item was added');
+       return redirect()->route('cart.index')->with('success_message', 'Item was added');*/
     }
 
     /**
@@ -49,8 +50,18 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+       /*$product = Product::find($id);
+       Cart::add($id, $product->name, 1, $product->price);
+       return redirect()->route('cart.index');*/
+
+   }
+   public function save($id)
+   {
+      $product = Product::find($id);
+      Cart::add($id, $product->name, 1, $product->price);
+      return back();
+
+  }
 
     /**
      * Update the specified resource in storage.
@@ -74,6 +85,6 @@ class CartController extends Controller
     {
         Cart::remove($id);
         
-        return back()->with('success_message', 'Item successfully deleted');
+        return back();
     }
 }

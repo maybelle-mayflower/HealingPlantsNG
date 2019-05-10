@@ -3,6 +3,15 @@
 @section('content')
 <body>
         @include('partials.nav_bar')
+        <div class="hero-wrap hero-bread" style="background-image: url('images/login.jpg'); margin-bottom: 0px;">
+            <div class="container">
+              <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                  <h1 class="mb-0 bread" >Register</h1>
+                </div>
+              </div>
+            </div>
+          </div>
         <section class="ftco-section contact-section bg-light">
 <div class="container">
     <div class="row justify-content-center">

@@ -24,7 +24,7 @@
 	<section class="ftco-section testimony-section bg-light">
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-3">
-				<div class="col-md-12 heading-section text-center ftco-animate">
+				<div class="col-md-12 heading-section text-center ftco-animate" style="margin-top: 2em;">
 					<h1 class="big">Inspiration</h1>
 					<h2>Favorite Quotes</h2>
 				</div>
@@ -140,7 +140,7 @@
 	<section class="ftco-section bg-light">
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-3">
-				<div class="col-md-12 heading-section text-center ftco-animate">
+				<div class="col-md-12 heading-section text-center ftco-animate" style="margin-top: 2em;">
 					<h1 class="big">Knowledge</h1>
 					<h2 class="mb-4">Our Herbs</h2>
 				</div>
@@ -151,7 +151,7 @@
 				@foreach($plants as $plant )
 				<div class="col-sm col-md-6 col-lg ftco-animate">
 					<div class="product">
-						<a href="{{route('single.show', $plant->slug)}}" class="img-prod"><img class="img-fluid" src="{{asset('/img/plants/thumbnail/'.$plant->slug.'.jpg')}}" alt="Colorlib Template"></a>
+						<a href="{{route('single.show', $plant->slug)}}" class="img-prod"><img class="img-fluid" src="{{asset('/img/plants/thumbnail/'.$plant->slug.'.jpg')}}" alt="{{$plant->slug}}"></a>
 						<div class="text py-3 px-3">
 							<h3><a href="#">{{$plant->name}}</a></h3>
 							
@@ -169,7 +169,7 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-3">
-				<div class="col-md-12 heading-section text-center ftco-animate">
+				<div class="col-md-12 heading-section text-center ftco-animate" style="margin-top: 2em;">
 					<h1 class="big">Expression</h1>
 					<h2>Our Blogs</h2>
 				</div>
@@ -177,7 +177,7 @@
 			<div class="row d-flex">
 				<div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry align-self-stretch">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/greentea.jpg');">
+						<a href="#" class="block-20" style="background-image: url('images/greentea.jpg');">
 						</a>
 						<div class="text mt-3 d-block">
 							<h3 class="heading mt-3"><a href="#">Green Tea Magic <span style="color: white;">whitespace whitespace</span></a></h3>
@@ -191,7 +191,7 @@
 				</div>
 				<div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry align-self-stretch">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/acv.jpg');">
+						<a href="#" class="block-20" style="background-image: url('images/acv.jpg');">
 						</a>
 						<div class="text mt-3">
 							<h3 class="heading mt-3"><a href="#">One Cure Fits All: Apple Cider Vinegar<span style="color: white;">whitespace whitespace</span></a></h3>
@@ -205,7 +205,7 @@
 				</div>
 				<div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry align-self-stretch">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/skincare.jpg');">
+						<a href="#" class="block-20" style="background-image: url('images/skincare.jpg');">
 						</a>
 						<div class="text mt-3">
 							<h3 class="heading mt-3"><a href="#">Daily Skincare Practices<span style="color: white;">whitespace whitespace</span></a></h3>

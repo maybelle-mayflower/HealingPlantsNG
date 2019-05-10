@@ -4,7 +4,7 @@
   <body>
       @include('partials.nav_bar')
 		
-		<div class="hero-wrap hero-bread" style="background-image: url('images/bg_33.jpg');">
+		<div class="hero-wrap hero-bread" style="background-image: url('images/contact.jpg');">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
@@ -53,7 +53,7 @@
           <div class="w-100"></div>
           <div class="col-md-3 d-flex">
           	<div class="info bg-white p-4">
-	            <p><span>Address:</span> Lekki, Lagos</p>
+	            <p><span>Address:</span> <a href ="#">Lekki, Lagos</a></p>
 	          </div>
           </div>
           <div class="col-md-3 d-flex">
