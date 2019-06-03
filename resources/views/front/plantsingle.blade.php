@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Plant Info')
+@section('title', 'Herb Info')
 @section('content')
   <body>
 			@include('partials.nav_bar')
@@ -19,11 +19,11 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-6 mb-5 ftco-animate">
-    				<img class="img-fluid img-rounded" src="{{asset('/img/plants/'.$plant->image.'')}}" alt="{{$plant->name}}" width="450" height="450">
+    				<img class="img-fluid img-thumbnail" src="{{asset('/img/plants/'.$plant->image.'')}}" alt="{{$plant->name}}" width="450" height="450">
     			</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
     				<h3>{{$plant->name}}</h3>
-						<p>{{$plant->description}}</p>
+						<p>{!!$plant->description!!}</p>
           	<p><a href="{{route('plant.recipes', $plant->id)}}" class="btn btn-primary py-3 px-5">Recipes</a></p>
     			</div>
     		</div>

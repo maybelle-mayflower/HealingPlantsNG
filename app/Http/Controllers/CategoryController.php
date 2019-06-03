@@ -50,9 +50,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -61,9 +61,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -73,9 +74,17 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $this->validate($request, [
+            'category_name' => 'max:255|required|unique:categories,category_name,'.$id
+        ]);
+        $category->category_name = $request->category_name;
+        $category->save();
+
+        return redirect()->route('category.index');
+
     }
 
     /**

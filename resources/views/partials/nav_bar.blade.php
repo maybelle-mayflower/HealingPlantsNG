@@ -24,6 +24,8 @@
                         </a>
 
                         <ul class="dropdown-menu" style="z-index: 1000;">
+                            <li><a href="">Account</a></li>
+                            <li><a href="{{route('orders.index')}}">My Orders</a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -31,10 +33,11 @@
                                     Logout
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('log_out') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </li>
+                            
                         </ul>
                     </li>
                 @endguest

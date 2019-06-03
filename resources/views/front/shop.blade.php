@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Home')
+@section('title', 'Shop')
 @section('content')
   <body>
 			@include('partials.nav_bar')
@@ -13,9 +13,16 @@
         </div>
       </div>
     </div>
-		
+
 		<section class="ftco-section bg-light">
         <div class="container-fluid">
+          <div class="row">
+              @if(session()->has('successmsg'))
+              <div class="alert alert-success col-md-3">
+                  {{ session()->get('successmsg') }}
+              </div>
+          @endif
+          </div>
           <div class="row">
             @foreach($products as $product)
 					

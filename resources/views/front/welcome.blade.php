@@ -149,7 +149,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				@foreach($plants as $plant )
-				<div class="col-sm col-md-6 col-lg ftco-animate">
+				<div class="col-md-3 ftco-animate">
 					<div class="product">
 						<a href="{{route('single.show', $plant->slug)}}" class="img-prod"><img class="img-fluid" src="{{asset('/img/plants/thumbnail/'.$plant->slug.'.jpg')}}" alt="{{$plant->slug}}"></a>
 						<div class="text py-3 px-3">

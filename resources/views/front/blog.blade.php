@@ -16,6 +16,7 @@
 		
     <section class="ftco-section">
         <div class="container">
+          <h2>HHNG Blog coming soon!</h2>
           <div class="row d-flex">
               @foreach($blogs as $blog)
               <div class="col-md-4 ftco-animate">

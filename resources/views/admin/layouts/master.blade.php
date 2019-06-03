@@ -44,6 +44,8 @@
   <!-- Demo scripts for this page-->
   <script src="{{ asset('admins/js/demo/datatables-demo.js')}}"></script>
   <script src="{{ asset('admins/js/demo/chart-area-demo.js')}}"></script>
+  <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+
 
 @yield('scripts')
 </html>

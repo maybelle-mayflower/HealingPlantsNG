@@ -35,12 +35,13 @@
           <div class="card-body">
 
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="50%" cellspacing="0">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>Name</th>
                     <th>Category</th>
-                    <th>Action</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -48,16 +49,22 @@
                     <th>Name</th>
                     <th>Category</th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </tfoot>
                 <tbody>
                     @foreach($recipes as $recipe)
                   <tr>
-                  <td><a href="#">{{$recipe->recipe_name}}</a></td>
+                  <td>{{$recipe->recipe_name}}</td>
                   
                   <td>{{$recipe->Category->category_name}}</td>
-                 
-                  <td><a href="#" class="btn btn-danger btn-xs">Delete</a></td>
+                 <td><a href="{{route('recipe.edit', $recipe->id)}}" class="btn btn-info btn-sm">Edit</a></td>
+                  <td>
+                    <form action="X"  method="PUT">
+                        {{csrf_field()}}
+                        <button class="btn btn-sm btn-danger" type="submit"><i class="fas fa-times"></i></button>
+                      </form>
+                  </td>
                 
                   </tr>
                   @endforeach

@@ -39,13 +39,15 @@
                   <tr>
                     <th>Name</th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach($categories as $category)
                   <tr>
                   <td>{{$category->category_name}}</td>
-                  <td><a href="#" class="btn btn-danger btn-xs">Del</a></td>
+                  <td><a href="{{route('category.edit', $category->id)}}" class="btn btn-info btn-sm">Edit</a></td>
+                  <td><a href="#" class="btn btn-danger btn-sm" id="delbtn" name="delbtn" data-id="{{$category->id}}">Del</a></td>
                   </tr>
                   @endforeach
                 
@@ -53,7 +55,6 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
       </div>
@@ -75,4 +76,28 @@
  
 </body>
 
+@endsection
+
+@section('scripts')
+<script>
+  $(document).on('click', '#delbtn', function(event){
+    event.preventDefault();
+    var id = $(this).data('id')
+    $('#cat_id').val(id);
+    $('#categoryDeleteModal').modal('show');
+  });
+  $(document).on('submit', '#deletecategoryform', function(event){
+    event.preventDefault();
+    $.ajax({
+      url:"",
+      method:"get",
+      data:{id:id},
+      dataType:'json',
+      success:function(data){
+        
+      }
+    })
+    console.log("submit");
+  });
+</script>
 @endsection

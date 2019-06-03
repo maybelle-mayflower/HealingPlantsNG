@@ -77,6 +77,11 @@
                     {{Form::textarea('method', null, ['class'=>'form-control'])}}
                 </div>
 
+                <div class="form-group">
+                        {{Form::label('display_image', 'Image')}}
+                        {{Form::file('display_image', ['class'=>'form-control'])}}
+                </div>
+
                 {{Form::submit('Create Recipe', ['class'=>'btn btn-info', 'name' => 'submit', 'id'=>'submit'])}}
                 {!! Form::close() !!}
             </div>
@@ -91,7 +96,11 @@
 </body>
 @endsection
 @section('scripts')
+
+
+
 <script type="text/javascript">
+    CKEDITOR.replace( 'method' );
     $(document).ready(function(){      
       var postURL = "<?php echo url('addingredient'); ?>";
       var i=1;  

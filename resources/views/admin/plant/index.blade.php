@@ -36,12 +36,18 @@
                   <tr>
                     <th>Name</th>
                     <th>Image</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>Name</th>
                     <th>Image</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -49,7 +55,28 @@
                   <tr>
                   <td>{{$plant->name}}</td>
                     <td><img src="{{asset ('img/plants/'.$plant->image.'')}}" alt="{{$plant->slug}}" width="150" height="100">
-                    </td>
+                    </td> 
+                    @if($plant->is_deleted ==1)         
+                          <td><span class="badge badge-secondary">Deleted</span></td>
+                          <td><a href="{{route ('plant.edit', $plant->id)}}" class="btn btn-info btn-sm disabled">Edit</a></td>
+                          <td>
+                            <form action="{{route('plant.activate',$plant->id)}}"  method="PUT">
+                                {{csrf_field()}}
+                                <button class="btn btn-sm btn-success " type="submit">Set Active</button>
+                              </form>
+                          </td>
+         
+                    @else
+                          <td><span class="badge badge-success">Active</span></td>
+                          <td><a href="{{route ('plant.edit', $plant->id)}}" class="btn btn-info btn-sm">Edit</a></td>
+                          <td>
+                            <form action="{{route('plant.del',$plant->id)}}"  method="PUT">
+                                {{csrf_field()}}
+                                <button class="btn btn-sm btn-danger" type="submit"><i class="fas fa-times"></i></button>
+                              </form>
+                          </td>
+                    @endif
+
                   </tr>
                   @endforeach
                 

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Home')
+@section('title', 'Contact')
 @section('content')
   <body>
       @include('partials.nav_bar')

@@ -13,43 +13,50 @@
                         </div>
 
                     </div>
-                <div class="row"style="margin-top: 15px;">
-                    <div class="col-12 col-md-8">
-                            <h2 style="text-decoration: underline;">{{$recipe->recipe_name}}</h2>
-                    </div>
-                </div>
-
-                <div class="row" style="margin-top: 15px;">
-                        <div class="col-12 col-lg-4">
-                                <h4>Ingredients:</h4>
-    
-                      <ul>
-                          @foreach($ingredients as $ingredient)
-                          <li>{{$ingredient->name}}</li>
-                          @endforeach
-
-
-                      </ul>
+                    <hr>
+                    <div class="row"style="margin-top: 15px;">
+                            <div class="col-12 col-md-8">
+                                    <h2>{{$recipe->recipe_name}}</h2>
+                            </div>
                         </div>
-                </div>
-                <div class="row" style="margin-top: 15px;">
-                    <div class="col-12 col-md-8">
-                            <h4>Method:</h4>
+
+                        <hr>
+                    <div class="row"style="margin-top: 4em; border: solid 2px grey; padding: 2em;">
+
+                        <div class="col-md-4">
+                                <h5>Ingredients:</h5>
+                                <ul style="list-style: none;">
+                                        @foreach($ingredients as $ingredient)
+                                        <li><input type="checkbox" name="" id=""> {{$ingredient->name}}</li>
+                                        @endforeach
+              
+                                    </ul>
+                        </div>
+                        <div class="col-md-4">
+                                <h5>Directions:</h5>
+                                <div >
+                                        <p>{!!$recipe->method!!}</p>
+                                    </div>
+
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                                <div >
+                                    <img src="{{asset('/img/recipes/'.$recipe->display_image.'')}}" alt="{{$recipe->display_image}}" width="250" height="250" class="img-thumbnail">
+                                </div>
+
+                        </div>
+
                     </div>
-                </div>
-    
+                    <hr>
                     <div class="row">
-                        <div class="col-12 col-lg-8">
-                            <p>{!!$recipe->method!!}</p>
-                        </div>
-
+                            <div class="col-md-4">
+                                    <div >
+                                            <p><a href="{{route('print.recipe', $recipe->id)}}" class="btn btn-primary py-3 px-5">Print <i class="fas fa-print"></i></a></p>
+                                        </div>
+    
+                            </div>
                     </div>
-                    <div class="row" style="margin-top:20px;">
-                    <div class="col-6 col-md-6 text-left">
-                        <p><a href="{{route('print.recipe', $recipe->id)}}" class="btn btn-primary py-3 px-5">Print</a></p>
-
-                </div>
-            </div>
 
     	</div>
     </section>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipes extends Model
 {
-    protected $fillable = ['recipe_name', 'recipe_base_id','treatment_for','keywords','category_id', 'method'];
+    protected $fillable = ['recipe_name', 'recipe_base_id','treatment_for','keywords','category_id', 'method', 'display_image'];
 
     public function category(){
         return $this->belongsTo('App\Category');

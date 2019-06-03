@@ -179,6 +179,9 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
+        Unicodeveloper\Paystack\PaystackServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
+
     ],
 
     /*
@@ -229,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
+
 
     ],
 

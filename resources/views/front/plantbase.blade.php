@@ -16,15 +16,17 @@
     <section class="ftco-section bg-light" style="margin-top: 0px;">
     <div class="container-fluid">
       <div class="row">
-          <div class="col-md-3 text-right align-right" style="float: right;">
-            <div class="form-group">
-               <input type="text" name="serach" id="serach" class="form-control" placeholder="Search.."/>
-            </div>
-          </div>
-        </div>
+          <form class="form-inline" action="/search" method="POST" role="search">
+          {{ csrf_field() }}
+            <label class="sr-only" for="search">Search</label>
+              <input type="text" class="form-control mb-2 mr-sm-2" id="q" name="q" placeholder="Search database...">
+          
+              <button type="submit" class="btn btn-primary mb-2"><i class="fas fa-search"></i></button>
+            </form>
+      </div>
         <div class="row"  id="data_bucket">
               @include('front.plantbased')
-            </div>
+        </div>
 
     <input type="hidden" name="hidden_page" id="hidden_page" value="1" />
     <input type="hidden" name="hidden_column_name" id="hidden_column_name" value="id" />
@@ -42,6 +44,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
+
+
+
+
+
+
+
+
+
+
+
+  /*
+  
 $(document).ready(function(){
 
  function clear_icon()
@@ -109,6 +124,6 @@ $(document).ready(function(){
         action(page, sort_type, column_name, query);
  });
 
-});
+});*/
 </script>
 @endsection

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -27,9 +27,15 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-       /*Cart::add($request->id, $request->name, 1, $request->price)
-       ->associate('App\Plant');
-       return redirect()->route('cart.index')->with('success_message', 'Item was added');*/
+       $user = Auth::user()->email;
+       if(Cart::store($user))
+       {
+           return redirect()->route('cart.index')->with('msg', 'Cart Stored');
+       }
+       else{
+        return redirect()->route('cart.index')->with('msg', 'Cart not Stored');
+
+       }
     }
 
     /**
@@ -40,7 +46,10 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Auth::user()->email;
+        Cart::restore($user);
+        return redirect()->route('cart.index');
+
     }
 
     /**
@@ -59,8 +68,9 @@ class CartController extends Controller
    public function save($id)
    {
       $product = Product::find($id);
-      Cart::add($id, $product->name,1,$product->price);
-      return back();
+     // Cart::add(['id' => $id, 'name' =>  $product->name, 'qty' => 1, 'price' => $product->price, 'options' => $product->image]);
+      Cart::add($id,  $product->name, 1,  $product->price, ['image' => $product->image]);
+      return back()->with("successmsg", "Item added to cart!");
 
   }
 
@@ -73,7 +83,8 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Cart::update($id, ['qty' => $request->qty]);
+        //Cart::update($id, ['qty' => $request->qty]);
+        Cart::update($id, $request->qty);
 
         return back();
     }
@@ -89,5 +100,13 @@ class CartController extends Controller
         Cart::remove($id);
         
         return back();
+    }
+
+    public function checkout(){
+        $cartItems = Cart::content();
+        if(Cart::count() < 1){
+            return redirect()->route('plant.shop');
+        }
+        return view('cart.checkout', compact('cartItems'));
     }
 }
