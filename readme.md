@@ -1,5 +1,5 @@
 <h1>Healing Herbs NG</h1>
-<p>A CMS style web application that provides users with information about medicinal uses of common everyday herbs and plants available in Nigeria. 
+<p>A CMS style web application that provides users with information about medicinal uses of everyday herbs and plants available in Nigeria. 
 Uers can search our HerbCyclopedia to learn about different herbs, find and print treatment recipes for different ailments.</p>
 
 <h3>Client Side Features:</h3>
