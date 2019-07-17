@@ -81,6 +81,8 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    <p>Returning Customer? <a href="/login">Login Here</a></p>
                 </div>
             </div>
         </div>

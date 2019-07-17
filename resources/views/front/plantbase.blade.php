@@ -1,5 +1,14 @@
 @extends('layouts.master')
 @section('title', 'Plant Bible')
+@section('styles')
+<style>
+  #herb-card{
+    border-radius: 20%;
+    margin-left: 5px;
+  }
+</style>
+
+@endsection
 @section('content')
   <body>
 			@include('partials.nav_bar')
@@ -24,7 +33,7 @@
               <button type="submit" class="btn btn-primary mb-2"><i class="fas fa-search"></i></button>
             </form>
       </div>
-        <div class="row"  id="data_bucket">
+        <div class="d-flex justify-content-between flex-wrap"  id="data_bucket">
               @include('front.plantbased')
         </div>
 

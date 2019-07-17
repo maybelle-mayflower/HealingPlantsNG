@@ -158,15 +158,16 @@
                         dataType :'json',
                         success:function(data)
                         {
+                          console.log(data);
                           //after creating order in database, set order id before going to payment gateway
-                            var orderid = data['orderid'];
+                           /* var orderid = data['orderid'];
                             var ref = data['reference'];
 
                             $('#orderID').val(orderid);
                             $('#amount').val(amt_in_kobo);
                             $('#reference').val(ref);
 
-                            $("#paymentform")[0].submit();  
+                            $("#paymentform")[0].submit();  */
                         },
                         error: function(xhr, status, error) {
                             var err = eval("(" + xhr.responseText + ")");

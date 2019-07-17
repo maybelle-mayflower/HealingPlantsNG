@@ -85,9 +85,8 @@ class PlantBaseController extends Controller
      }
     }
 
-
-    ///ADMIN CONTROLLER FUNCTIONS//////
-    public function adminIndex(){
+     ///ADMIN CONTROLLER FUNCTIONS//////
+     public function adminIndex(){
         $plants = Plant::all();
         return view('admin.product.index', compact('plants'));
     }
@@ -99,7 +98,7 @@ class PlantBaseController extends Controller
         $formInput = $request->except('image');
         //validation
 
-        $this->validate($request, [
+        $this->validate($formInput, [
             'name' => 'required',
             'slug' => 'required',
             'image'=>'image|mimes:png,jpg,jpeg|max:10000'
@@ -120,7 +119,7 @@ class PlantBaseController extends Controller
         return view('admin.plant.edit', compact('plant'));
     }
 
-    public function update(Request $request, $id){
+    public function update(Req $request, $id){
         $plant=Plant::find($id);
         $formInput=$request->except('image');
 //        validation
@@ -172,6 +171,5 @@ class PlantBaseController extends Controller
         $plant->save();
         return back();
     }
-
     
 }
